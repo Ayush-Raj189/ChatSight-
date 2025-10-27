@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
+import numpy as np
 
 
 
@@ -668,27 +669,26 @@ else:
                 fig, ax = plt.subplots(figsize=(8, 8))
                 top_emojis = emoji_df.head(5)
                 sizes = top_emojis[1].values
-                labels = [f"{emoji} ({count})" for emoji, count in zip(top_emojis[0].values, sizes)]
+                emojis = top_emojis[0].values
                 
-                colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b', 
-                         '#fa709a', '#fee140', '#30cfd0', '#a8edea', '#fed6e3']
+                colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b']
                 explode = tuple([0.05] * len(top_emojis))
                 
+                # Create pie chart without labels
                 wedges, texts, autotexts = ax.pie(
                     sizes, 
-                    labels=labels,
                     autopct="%0.1f%%",
                     colors=colors, 
                     startangle=90,
                     explode=explode,
                     shadow=True,
-                    textprops={'fontsize': 11, 'weight': 'bold'}
+                    textprops={'fontsize': 12, 'weight': 'bold', 'color': 'white'}
                 )
                 
-                for autotext in autotexts:
-                    autotext.set_color('white')
-                    autotext.set_fontsize(11)
-                    autotext.set_weight('bold')
+                # Create custom legend with emojis and counts
+                legend_labels = [f"{emoji}  ({count})" for emoji, count in zip(emojis, sizes)]
+                ax.legend(legend_labels, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1), 
+                         fontsize=14, frameon=True, fancybox=True, shadow=True)
                 
                 ax.set_title('Top 5 Most Used Emojis', fontsize=14, fontweight='bold', pad=20)
                 plt.tight_layout()
