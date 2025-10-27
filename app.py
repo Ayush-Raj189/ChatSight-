@@ -666,7 +666,7 @@ else:
             with col2:
                 st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                 fig, ax = plt.subplots(figsize=(8, 8))
-                top_emojis = emoji_df.head(10)
+                top_emojis = emoji_df.head(5)
                 sizes = top_emojis[1].values
                 labels = [f"{emoji} ({count})" for emoji, count in zip(top_emojis[0].values, sizes)]
                 
@@ -690,7 +690,7 @@ else:
                     autotext.set_fontsize(11)
                     autotext.set_weight('bold')
                 
-                ax.set_title('Top 10 Most Used Emojis', fontsize=14, fontweight='bold', pad=20)
+                ax.set_title('Top 5 Most Used Emojis', fontsize=14, fontweight='bold', pad=20)
                 plt.tight_layout()
                 st.pyplot(fig)
                 plt.close()
