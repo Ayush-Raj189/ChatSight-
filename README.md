@@ -67,7 +67,7 @@
 
 ### 2. **Clone & Setup**
 
-- git clone https://github.com/Ayush-Raj189/whatsapp-chat-analyzer.git
+- git clone https://github.com/Ayush-Raj189/ChatSight-
 - cd whatsapp-chat-analyzer
 - pip install -r requirements.txt
 - streamlit run app.py
