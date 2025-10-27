@@ -86,6 +86,20 @@
 
 ---
 
+## 🗂 Folder Structure
+
+whatsapp-chat-analyzer/
+│
+├── app.py # Main Streamlit interface
+├── preprocessor.py # Data cleaning and preparation
+├── helper.py # Analysis and visualization functions
+├── stop_hinglish.txt # Stopwords for word cloud
+├── requirements.txt # All Python dependencies
+├── README.md # You're here!
+└── (assets/) # (Optional) Images/screenshots for documentation
+
+---
+
 ## 👥 Contributing
 
 Pull requests and feature suggestions are welcome!  
